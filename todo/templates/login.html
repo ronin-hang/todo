@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+<section class="todoapp">
+    <header class="header">
+        <h2>登陆 你好 {{ username }}</h2>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" class="new-todo" name="username" placeholder="请输入用户名">
+            <input type="text" class="new-todo" name="password" placeholder="请输入密码">
+            <div class="center">
+                <button class="confirm-button" type="submit">登录</button>
+            </div>
+        </form>
+    </header>
+</section>
+<footer class="warn">
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+</footer>
+<a href="{% url 'register_view' %}">注冊</a>
+<a href="{% url 'todo_index_all' %}">Todo</a>
+</body>
+</html>
+
+

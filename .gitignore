@@ -1,0 +1,4 @@
+.idea
+*.pyc
+secret.py
+说明.md
